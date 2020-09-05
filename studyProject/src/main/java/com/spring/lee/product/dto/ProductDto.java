@@ -1,24 +1,34 @@
 package com.spring.lee.product.dto;
 
+import java.sql.Clob;
+
 public class ProductDto {
 	private int num;
+	private String writer;
 	private String name;
-	private String content;
+	private Clob content;
 	private long price;
-	private int classify;
 	private String image;
 	private String regdate;
 	
 	public ProductDto() {}
 
-	public ProductDto(int num, String name, String content, long price, int classify, String image, String regdate) {
+	public ProductDto(int num, String writer, String name, Clob content, long price, String image, String regdate) {
 		this.num = num;
+		this.writer=writer;
 		this.name = name;
 		this.content = content;
 		this.price = price;
-		this.classify = classify;
 		this.image = image;
 		this.regdate = regdate;
+	}
+
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 
 	public int getNum() {
@@ -37,11 +47,11 @@ public class ProductDto {
 		this.name = name;
 	}
 
-	public String getContent() {
+	public Clob getContent() {
 		return content;
 	}
 
-	public void setContent(String content) {
+	public void setContent(Clob content) {
 		this.content = content;
 	}
 
@@ -51,14 +61,6 @@ public class ProductDto {
 
 	public void setPrice(long price) {
 		this.price = price;
-	}
-
-	public int getClassify() {
-		return classify;
-	}
-
-	public void setClassify(int classify) {
-		this.classify = classify;
 	}
 
 	public String getImage() {

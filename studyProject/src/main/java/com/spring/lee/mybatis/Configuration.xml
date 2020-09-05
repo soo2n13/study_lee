@@ -3,7 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<typeAliases>
+		<typeAlias type="com.spring.lee.users.dto.UsersDto" alias="usersDto"/>
+		<typeAlias type="com.spring.lee.product.dto.ProductDto" alias="productDto"/>
+		<typeAlias type="com.spring.lee.product.dto.ProductCommentDto" alias="productCommentDto"/>		
+		<typeAlias type="com.spring.lee.board.dto.BoardDto" alias="boardDto"/>
+	</typeAliases>
 	
+	<mappers>
+		<mapper resource="com/spring/lee/mybatis/UsersMapper.xml"/>
+		<mapper resource="com/spring/lee/mybatis/ProductMapper.xml"/>
+		<mapper resource="com/spring/lee/mybatis/ProductCommentMapper.xml"/>
+		<mapper resource="com/spring/lee/mybatis/BoardMapper.xml"/>
+	</mappers>
 </configuration>
 
 
