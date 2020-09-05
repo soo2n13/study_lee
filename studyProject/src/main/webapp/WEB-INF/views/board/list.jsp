@@ -11,8 +11,8 @@
 <body>
 	<jsp:include page="/resources/head/header.jsp"></jsp:include>
 	<div class="container">
-	<a href="insertform.do">새글 작성</a>
-	<h1>글 목록 입니다.</h1>
+	<a href="private/insertform.do" class="float-right">새글 작성</a>
+	<h1>게시판</h1>
 	<table class="table table-striped table-sm">
 		<thead class="thead-dark">
 			<tr>

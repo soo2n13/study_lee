@@ -3,6 +3,7 @@ package com.spring.lee.board.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,31 +24,40 @@ public class BoardController {
 	@RequestMapping("/board/list")
 	public ModelAndView getList(HttpServletRequest request, 
 			ModelAndView mView) {
+		
 		service.getList(request);
 		mView.setViewName("board/list");
+		
 		return mView;
 	}
 	
-	@RequestMapping("/board/insertform")
+	@RequestMapping("/board/private/insertform")
 	public ModelAndView insertForm(ModelAndView mView) {
 		
-		mView.setViewName("board/insertform");
+		mView.setViewName("board/private/insertform");
+		
 		return mView;
 	}
 	
-	@RequestMapping("/board/insert")
-	public ModelAndView insertData(BoardDto dto, ModelAndView mView) {
-		dto.setWriter("lee");
+	@RequestMapping("/board/private/insert")
+	public ModelAndView insertData(BoardDto dto, HttpSession session, ModelAndView mView) {
+		
+		String id = (String)session.getAttribute("id");
+		dto.setWriter(id);
+		
 		service.saveContent(dto);
-		mView.setViewName("board/insert");
+		mView.setViewName("board/private/insert");
+		
 		return mView;
 	}
 	
 	@RequestMapping("/board/detail")
 	public ModelAndView detail(HttpServletRequest request,
 			ModelAndView mView) {
+		
 		service.getDetail(request);
 		mView.setViewName("board/detail");
+		
 		return mView;
 	}
 }
