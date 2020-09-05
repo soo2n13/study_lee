@@ -1,19 +1,17 @@
 package com.spring.lee.product.dto;
 
-import java.sql.Clob;
-
 public class ProductDto {
 	private int num;
 	private String writer;
 	private String name;
-	private Clob content;
+	private String content;
 	private long price;
 	private String image;
 	private String regdate;
 	
 	public ProductDto() {}
 
-	public ProductDto(int num, String writer, String name, Clob content, long price, String image, String regdate) {
+	public ProductDto(int num, String writer, String name, String content, long price, String image, String regdate) {
 		this.num = num;
 		this.writer=writer;
 		this.name = name;
@@ -47,11 +45,11 @@ public class ProductDto {
 		this.name = name;
 	}
 
-	public Clob getContent() {
+	public String getContent() {
 		return content;
 	}
 
-	public void setContent(Clob content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 
