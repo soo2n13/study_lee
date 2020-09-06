@@ -42,7 +42,7 @@ public class ProductCommentDaoImpl implements ProductCommentDao {
 
 	@Override
 	public ProductCommentDto getData(int num) {
-		ProductCommentDto dto = session.selectOne("peoductComment.getData", num);
+		ProductCommentDto dto = session.selectOne("productComment.getData", num);
 		return dto;
 	}
 
@@ -50,6 +50,11 @@ public class ProductCommentDaoImpl implements ProductCommentDao {
 	public int getCount(int ref_group) {
 		int count=session.selectOne("productComment.getCount", ref_group);
 		return count;
+	}
+
+	@Override
+	public void groupDelete(int ref_group) {
+		session.delete("productComment.groupDelete", ref_group);
 	}
 
 }

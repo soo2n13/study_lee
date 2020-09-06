@@ -7,7 +7,7 @@
 			(SELECT result1.*, ROWNUM AS rnum
 			FROM
 				(SELECT num, writer, content, target_id, ref_group,
-					comment_group, deleted, board_cafe_comment.regdate, profile
+					comment_group, deleted, product_comment.regdate, profile
 				FROM product_comment
 				INNER JOIN users
 				ON product_comment.writer=users.id
@@ -45,4 +45,8 @@
 		FROM product_comment
 		WHERE ref_group=#{ref_group}
 	</select>
+	<delete id="groupDelete" parameterType="int">
+		DELETE FROM product_comment
+		WHERE ref_group=#{ref_group}
+	</delete>
 </mapper>

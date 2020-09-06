@@ -112,7 +112,6 @@ public class UsersController {
 	@ResponseBody
 	public Map<String, Object> profile_upload
 				(HttpServletRequest request,@RequestParam MultipartFile image){
-		System.out.println(image);
 		Map<String, Object> map=service.saveProfileImage(request, image);
 
 		return map;

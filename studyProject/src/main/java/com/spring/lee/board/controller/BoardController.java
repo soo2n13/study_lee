@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.lee.board.dto.BoardDto;
@@ -58,6 +59,28 @@ public class BoardController {
 		service.getDetail(request);
 		mView.setViewName("board/detail");
 		
+		return mView;
+	}
+	
+	@RequestMapping("/board/private/updateform")
+	public ModelAndView updateform(HttpServletRequest request,
+			ModelAndView mView) {
+		service.getDetail(request);
+		mView.setViewName("board/private/updateform");
+		return mView;
+	}
+	
+	@RequestMapping(value="/board/private/update", method=RequestMethod.POST)
+	public ModelAndView update(BoardDto dto, ModelAndView mView) {
+		service.updateContent(dto);
+		mView.setViewName("board/private/update");
+		return mView;
+	}
+	@RequestMapping("/board/private/delete")
+	public ModelAndView delete(int num,
+			ModelAndView mView) {
+		service.deleteContent(num);
+		mView.setViewName("redirect:/board/list.do");
 		return mView;
 	}
 }

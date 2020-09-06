@@ -67,6 +67,14 @@
 </div>
 
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.5.1.js"></script>
+<script>
+function deleteConfirm(){
+	var isDelete=confirm("이 글을 삭제 하시겠습니까?");
+	if(isDelete){
+		location.href="private/delete.do?num=${dto.num}";
+	}
+}
+</script>
 </body>
 </html>
 

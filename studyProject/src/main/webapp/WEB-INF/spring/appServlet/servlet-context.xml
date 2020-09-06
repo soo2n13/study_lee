@@ -48,6 +48,7 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="1"/>
 	</beans:bean>
 	
 	<context:component-scan base-package="com.spring.lee" />
@@ -57,6 +58,9 @@
 		<beans:property name="maxUploadSize" value="102400000"/>
 	</beans:bean>
 	
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0"/>
+	</beans:bean>
 	
-	
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>	
 </beans:beans>

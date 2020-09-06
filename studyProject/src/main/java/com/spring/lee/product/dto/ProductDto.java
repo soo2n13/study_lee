@@ -8,6 +8,8 @@ public class ProductDto {
 	private long price;
 	private String image;
 	private String regdate;
+	private int startRowNum;
+	private int endRowNum;
 	
 	public ProductDto() {}
 
@@ -19,6 +21,8 @@ public class ProductDto {
 		this.price = price;
 		this.image = image;
 		this.regdate = regdate;
+		this.startRowNum = startRowNum;
+		this.endRowNum = endRowNum;
 	}
 
 	public String getWriter() {
@@ -77,4 +81,19 @@ public class ProductDto {
 		this.regdate = regdate;
 	}
 	
+	public int getStartRowNum() {
+		return startRowNum;
+	}
+
+	public void setStartRowNum(int startRowNum) {
+		this.startRowNum = startRowNum;
+	}
+
+	public int getEndRowNum() {
+		return endRowNum;
+	}
+
+	public void setEndRowNum(int endRowNum) {
+		this.endRowNum = endRowNum;
+	}
 }
