@@ -62,12 +62,12 @@ public class ProductController {
 		return mView;
 	}
 	
-	@RequestMapping(value = "/product/private/image_upload",method=RequestMethod.POST)
 	@ResponseBody
+	@RequestMapping("/product/private/image_upload")
 	public Map<String, Object> image_upload
-				(HttpServletRequest request,@RequestParam MultipartFile image){
+				(HttpServletRequest request,@RequestParam MultipartFile img){
 		//service 객체를 이용해서 이미지를 upload 폴더에 저장하고 Map 을 리턴 받는다.
-		Map<String, Object> map=productService.saveImage(request, image);
+		Map<String, Object> map=productService.saveImage(request, img);
 		//{"imageSrc":"/upload/xxx.jpg"} 형식의 JSON 문자열을 출력하기 위해
 		//Map 을 @ResponseBody 로 리턴해준다. 
 		return map;

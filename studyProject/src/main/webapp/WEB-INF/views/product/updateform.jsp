@@ -17,16 +17,29 @@
 <jsp:include page="/resources/head/header.jsp"></jsp:include>
 <div class="container">
 	<h1>상품 수정 양식 입니다.</h1>
+	<form action="image_upload.do" method="post" enctype="multipart/form-data" id="imgForm">
+		<div class="form-group">
+			<label for="img">첨부 이미지</label>
+			<input class="form-control" type="file" name="img" 
+			accept=".jpg, .jpeg, .png, .JPG, .JPEG" id="img"/>
+		</div>
+	</form>
 	<form action="update.do" method="post">
+		<input type="hidden" name="image" id="image" value="${dto.image }"/>
 		<input type="hidden" name="num" value="${dto.num }"/>
 		<div class="form-group">
-			<label for="num">글번호</label>
+			<label for="num">상품번호</label>
 			<input class="form-control" type="text" id="num" value="${dto.num }" disabled/>
 		</div>
 		<div class="form-group">
-			<label for="title">제목</label>
+			<label for="title">상품명</label>
 			<input class="form-control" type="text" id="name" name="name" 
 				value="${dto.name }"/>
+		</div>
+		<div class="form-group">
+			<label for="price">상품가</label>
+			<input class="form-control" type="text" id="price" name="price" 
+				value="${dto.price }"/>
 		</div>
 		<div class="form-group">
 			<label for="content">내용</label>
@@ -37,6 +50,20 @@
 	</form>
 </div>
 <!-- SmartEditor 에서 필요한 javascript 로딩  -->
+<script src="${pageContext.request.contextPath }/resources/js/jquery-3.5.1.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/jquery.form.min.js"></script>
+<script>
+	//이미지를 선택했을때 실행할 함수 등록
+	$("#img").on("change", function(){
+		$("#imgForm").submit();
+	});
+	
+	//폼이 ajax 로 제출될수 있도록 플러그인을 동작 시킨다.
+	$("#imgForm").ajaxForm(function(data){
+		console.log(data);
+		$("#image").val(data.imageSrc);
+	});
+</script>
 <script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
 <script>
 	var oEditors = [];

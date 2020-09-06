@@ -28,7 +28,7 @@
 	<select id="getData" parameterType="int" resultType="productDto">
 		SELECT result1.*
 		FROM
-			(SELECT num,writer,name,content,image,
+			(SELECT num,writer,name,price,content,image,
 				TO_CHAR(regdate,'YY.MM.DD HH24:MI') AS regdate
 			FROM product) result1
 		WHERE num=#{num}
@@ -44,7 +44,7 @@
 	</delete>
 	<update id="update" parameterType="productDto">
 		UPDATE product
-		SET name=#{name}, content=#{content}
+		SET name=#{name}, content=#{content}, image=#{image}, price=#{price}
 		WHERE num=#{num}
 	</update>
 </mapper>

@@ -19,7 +19,7 @@
 <jsp:include page="/resources/head/header.jsp"></jsp:include>
 <div class="container">
 	<h1>상품 등록 페이지</h1>
-	<form action="image_upload.do" method="post" enctype="multipart/form-data" id="profileForm">
+	<form action="image_upload.do" method="post" enctype="multipart/form-data" id="imgForm">
 		<div class="form-group">
 			<label for="img">첨부 이미지</label>
 			<input class="form-control" type="file" name="img" 
@@ -68,11 +68,11 @@
 <script>
 	//이미지를 선택했을때 실행할 함수 등록
 	$("#img").on("change", function(){
-		$("#profileForm").submit();
+		$("#imgForm").submit();
 	});
 	
 	//폼이 ajax 로 제출될수 있도록 플러그인을 동작 시킨다.
-	$("#profileForm").ajaxForm(function(data){
+	$("#imgForm").ajaxForm(function(data){
 		console.log(data);
 		$("#image").val(data.imageSrc);
 	});
